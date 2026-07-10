@@ -1,17 +1,17 @@
 const PAGE_COUNT = 5;
 const LAST = PAGE_COUNT - 1;
-let active = 0;                    // aktuelle Seite (Start: Seite 0)
+let active = 0;                   
 let closeTimer = null;
 
-let locked = true;                 // am Anfang gesperrt
-setTimeout(() => { locked = false; }, 2000);   // nach 8 Sek. freigeben
+let locked = true;               
+setTimeout(() => { locked = false; }, 2000);  
 
 const slider    = document.querySelector('.slider');
 const keepEls   = document.querySelectorAll('.keep-open');
 const meBtn     = document.querySelector('.me-btn');
 const pageViews = document.querySelectorAll('.page-view');
 
-// Footer + Punkte (nur Seite 2–5)
+
 const bar = document.createElement('div');
 bar.className = 'pageswitch';
 
@@ -25,7 +25,7 @@ for (let i = 1; i <= LAST; i++) {
 }
 document.body.appendChild(bar);
 
-// Seite anzeigen: Slider + aktiver Punkt + sichtbare page-view
+
 function show(index) {
   slider.style.transform = `translateX(-${index * 20}%)`;
   dots.forEach(({ el, page }) => el.classList.toggle('active', page === index));
@@ -40,7 +40,7 @@ function openZone() {
 }
 
 function goTo(index) {
-  if (locked) return;              // während der Sperre kein Wechsel
+  if (locked) return;              
   active = Math.max(1, Math.min(index, LAST));
   openZone();
   show(active);
@@ -62,19 +62,19 @@ document.addEventListener('mousemove', (e) => {
     closeTimer = null;
     bar.classList.add('visible');
     meBtn.classList.add('big');
-    if (onPanel && !locked) show(active);   // erst nach der Sperre wechseln
+    if (onPanel && !locked) show(active);   
   } else if (!closeTimer) {
     closeTimer = setTimeout(() => {
       bar.classList.remove('visible');
       meBtn.classList.remove('big');
-      // kein show(0) -> bleibt auf der aktuellen Seite stehen
+   
       closeTimer = null;
     }, 250);
   }
 });
 
 document.addEventListener('keydown', (e) => {
-  if (locked) return;              // während der Sperre nichts tun
+  if (locked) return;             
   const k = e.key.toLowerCase();
   if (k === 'arrowright' || k === 'arrowdown' || k === 'd' || k === 's') {
     goTo(active + 1);
@@ -87,7 +87,7 @@ document.addEventListener('keydown', (e) => {
 
 let wheelLock = false;
 document.addEventListener('wheel', (e) => {
-  if (locked) return;              // während der Sperre nichts tun
+  if (locked) return;             
   if (wheelLock) return;
   wheelLock = true;
   setTimeout(() => { wheelLock = false; }, 250);
@@ -95,7 +95,6 @@ document.addEventListener('wheel', (e) => {
   else              goTo(active - 1);
 }, { passive: true });
 
-// --- Seite 2: Interesse im Button anhovern -> Detail rechts zeigen ---
 const interestItems = document.querySelectorAll('.interest-list li');
 const detailViews   = document.querySelectorAll('.detail-view');
 
@@ -110,4 +109,4 @@ interestItems.forEach(li => {
 
 if (interestItems.length) showDetail(interestItems[0].dataset.interest);
 
-show(0);   // Start: Seite 0 anzeigen
+show(0);  

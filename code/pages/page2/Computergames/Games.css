@@ -15,7 +15,7 @@ body {
   background: transparent;
 }
 
-.modeling {
+.games {
   min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +23,7 @@ body {
   justify-content: center;
   gap: 60px;
   padding: 40px;
-  padding-left: 280px;         
+  padding-left: 280px;           
 }
 
 .info {
@@ -35,38 +35,23 @@ body {
   margin-bottom: 32px;
 }
 
-.software-title {
+.fav-title {
   font-size: 1.6rem;
   opacity: 0.85;
   margin-bottom: 20px;
 }
 
-.software-list {
+.game-list {
   list-style: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
 }
 
-.software-item {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.game-item {
   font-size: 1.8rem;
 }
-
-.software-icon {
-  width: 44px;
-  height: 44px;
-  flex-shrink: 0;
-}
-
-
-.icon-blender {
-  fill: #ea7600;
-}
-
 
 .viewer {
   width: min(42vw, 420px);

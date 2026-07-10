@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="games.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <title>Computer Games</title>
+</head>
+<body>
+    <main class="games">
+        <section class="info">
+            <h1 class="headline">Computer Games</h1>
+ 
+            <section class="fav">
+                <h2 class="fav-title">favorite games</h2>
+ 
+                <ul class="game-list">
+                    <li class="game-item">Zelda: Ocarina of Time</li>
+                    <li class="game-item">Hollow Knight</li>
+                    <li class="game-item">Minecraft</li>
+                </ul>
+            </section>
+        </section>
+ 
+        <div class="viewer">
+            <model-viewer
+                src="/assets/hollowknight.glb"
+                alt="3D-Modell aus Hollow Knight"
+                camera-controls
+                auto-rotate
+                touch-action="pan-y"
+                shadow-intensity="1">
+            </model-viewer>
+        </div>
+    </main>
+</body>
+</html>

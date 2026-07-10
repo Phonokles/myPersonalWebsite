@@ -174,3 +174,23 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.page-view:has(.detail-frame) {
+  padding: 0;
+  overflow: hidden;
+}
+.interest-detail {
+  position: absolute;
+  inset: 0;
+}
+.detail-view.shown {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.detail-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
