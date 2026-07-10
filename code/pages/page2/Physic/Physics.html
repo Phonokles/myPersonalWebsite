@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="physics.css">
+    <title>Physics &amp; Math</title>
+</head>
+<body>
+    <main class="physics">
+        <section class="info">
+            <h1 class="headline">Physics &amp; Math</h1>
+            <p class="lead">A <strong>tesseract</strong> &ndash; a 4D cube, projected onto 2D.
+            Rotate it through its 6 planes. The three with <strong>W</strong> are the real 4D rotations.</p>
+        </section>
+
+        <section class="viewer">
+            <canvas id="tesseract"></canvas>
+
+            <div class="controls">
+                <div class="ctrl-section">
+                    <span class="ctrl-caption">3D rotations</span>
+                    <div class="ctrl-grid">
+                        <div class="ctrl-group"><span class="plane">XY</span>
+                            <button class="ctrl-btn" data-plane="xy" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="xy" data-dir="-1">-</button></div>
+                        <div class="ctrl-group"><span class="plane">XZ</span>
+                            <button class="ctrl-btn" data-plane="xz" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="xz" data-dir="-1">-</button></div>
+                        <div class="ctrl-group"><span class="plane">YZ</span>
+                            <button class="ctrl-btn" data-plane="yz" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="yz" data-dir="-1">-</button></div>
+                    </div>
+                </div>
+
+                <div class="ctrl-section">
+                    <span class="ctrl-caption">4D rotations</span>
+                    <div class="ctrl-grid">
+                        <div class="ctrl-group"><span class="plane">XW</span>
+                            <button class="ctrl-btn" data-plane="xw" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="xw" data-dir="-1">-</button></div>
+                        <div class="ctrl-group"><span class="plane">YW</span>
+                            <button class="ctrl-btn" data-plane="yw" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="yw" data-dir="-1">-</button></div>
+                        <div class="ctrl-group"><span class="plane">ZW</span>
+                            <button class="ctrl-btn" data-plane="zw" data-dir="1">+</button>
+                            <button class="ctrl-btn" data-plane="zw" data-dir="-1">-</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="Physics.js"></script>
+</body>
+</html>
