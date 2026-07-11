@@ -1,16 +1,15 @@
 const PAGE_COUNT = 5;
 const LAST = PAGE_COUNT - 1;
-let active = 0;                   
+let active = 0;
 let closeTimer = null;
 
-let locked = true;               
-setTimeout(() => { locked = false; }, 2000);  
+let locked = true;
+setTimeout(() => { locked = false; }, 2000);
 
 const slider    = document.querySelector('.slider');
 const keepEls   = document.querySelectorAll('.keep-open');
 const meBtn     = document.querySelector('.me-btn');
 const pageViews = document.querySelectorAll('.page-view');
-
 
 const bar = document.createElement('div');
 bar.className = 'pageswitch';
@@ -24,7 +23,6 @@ for (let i = 1; i <= LAST; i++) {
   dots.push({ el: dot, page: i });
 }
 document.body.appendChild(bar);
-
 
 function show(index) {
   slider.style.transform = `translateX(-${index * 20}%)`;
@@ -40,7 +38,7 @@ function openZone() {
 }
 
 function goTo(index) {
-  if (locked) return;              
+  if (locked) return;
   active = Math.max(1, Math.min(index, LAST));
   openZone();
   show(active);
@@ -62,19 +60,21 @@ document.addEventListener('mousemove', (e) => {
     closeTimer = null;
     bar.classList.add('visible');
     meBtn.classList.add('big');
-    if (onPanel && !locked) show(active);   
+    if (onPanel && !locked) {
+      if (active === 0) goTo(1);   // from the start page, hovering advances to page 1
+      else show(active);
+    }
   } else if (!closeTimer) {
     closeTimer = setTimeout(() => {
       bar.classList.remove('visible');
       meBtn.classList.remove('big');
-   
       closeTimer = null;
     }, 250);
   }
 });
 
 document.addEventListener('keydown', (e) => {
-  if (locked) return;             
+  if (locked) return;
   const k = e.key.toLowerCase();
   if (k === 'arrowright' || k === 'arrowdown' || k === 'd' || k === 's') {
     goTo(active + 1);
@@ -84,10 +84,15 @@ document.addEventListener('keydown', (e) => {
     e.preventDefault();
   }
 });
-
+window.addEventListener('message', (e) => {
+  if (!e.data || e.data.type !== 'nav') return;
+  if (e.data.dir === 'next') goTo(active + 1);
+  if (e.data.dir === 'prev') goTo(active - 1);
+});
 let wheelLock = false;
 document.addEventListener('wheel', (e) => {
-  if (locked) return;             
+  if (e.target.closest && e.target.closest('.code-browser')) return;  // scroll the code viewer freely
+  if (locked) return;
   if (wheelLock) return;
   wheelLock = true;
   setTimeout(() => { wheelLock = false; }, 250);
@@ -109,4 +114,4 @@ interestItems.forEach(li => {
 
 if (interestItems.length) showDetail(interestItems[0].dataset.interest);
 
-show(0);  
+show(0);

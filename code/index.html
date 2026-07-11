@@ -3,6 +3,8 @@
 <head>
     <link rel="stylesheet" href="footer/pageswitch.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <link rel="stylesheet" href="pages/projects/projects.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bitcount:wght@100..900&display=swap" rel="stylesheet">
@@ -12,36 +14,35 @@
 </head>
 <body>
     <div class="content-wrapper">
-        <button class="me-btn">
+        <div class="me-btn">
             <span class="slider">
                 <span class="page">
-                    <span class="title">about Me:</span>
-                    <span>i am supper duper cool</span>
+                    <span class="title">welcome</span>
+                    <span>scroll or use the arrow keys</span>
                 </span>
                 <span class="page">
-                <span class="title">my interests</span>
-                <ul class="interest-list">
-                    <li data-interest="programming">Programming</li>
-                    <li data-interest="modeling">3D Modeling</li>
-                    <li data-interest="music">Music</li>
-                    <li data-interest="games">Computer Games</li>
-                    <li data-interest="physics">Physics &amp; Math</li>
-                </ul>
+                    <span class="title">about me</span>
+                    <span>a little bit about who I am</span>
                 </span>
                 <span class="page">
-                    <span class="title">projects</span>
-                    <span>coming soon</span>
+                    <span class="title">my interests</span>
+                    <ul class="interest-list">
+                        <li data-interest="programming">Programming</li>
+                        <li data-interest="modeling">3D Modeling</li>
+                        <li data-interest="music">Music</li>
+                        <li data-interest="games">Computer Games</li>
+                        <li data-interest="physics">Physics &amp; Math</li>
+                    </ul>
                 </span>
                 <span class="page">
-                    <span class="title">skills</span>
-                    <span>HTML / CSS / JS</span>
+                    <div class="project-cards" id="project-cards">loading projects &hellip;</div>
                 </span>
                 <span class="page">
                     <span class="title">contact</span>
-                    <span>schreib mir!</span>
+                    <span>get in touch</span>
                 </span>
             </span>
-        </button>
+        </div>
 
         <div id="page-content">
             <div class="page-view" data-page="0">
@@ -52,42 +53,48 @@
                     <p class="p1-sub">then use the scroll wheel or arrow keys<br>to swipe left and right</p>
                 </div>
             </div>
-        <div class="page-view" data-page="1">
-    <div class="interest-detail keep-open">
-        <div class="detail-view" data-interest="programming">
-    <iframe class="detail-frame" src="pages/page2/Programming/programming.html"></iframe>
-</div>
-<div class="detail-view" data-interest="modeling">
-    <iframe class="detail-frame" src="pages/page2/3dModeling/modeling.html"></iframe>
-</div>
-<div class="detail-view" data-interest="music">
-    <iframe class="detail-frame" src="pages/page2/Music/music.html"></iframe>
-</div>
-<div class="detail-view" data-interest="games">
-    <iframe class="detail-frame" src="pages/page2/ComputerGames/games.html"></iframe>
-</div>
-<div class="detail-view" data-interest="physics">
-    <iframe class="detail-frame" src="pages/page2/Physic/Physics.html"></iframe>
-</div>
-    </div>
-</div>
 
-            <div class="page-view" data-page="2">
-                <h1>projects</h1>
-                <p>coming soon</p>
+            <div class="page-view" data-page="1">
+                <iframe class="detail-frame" src="pages/aboutme/aboutme.html"></iframe>
             </div>
 
-            <div class="page-view" data-page="3">
-                <h1>skills</h1>
-                <p>HTML / CSS / JS</p>
+            <div class="page-view" data-page="2">
+                <div class="interest-detail keep-open">
+                    <div class="detail-view" data-interest="programming">
+                        <iframe class="detail-frame" src="pages/page2/Programming/programming.html"></iframe>
+                    </div>
+                    <div class="detail-view" data-interest="modeling">
+                        <iframe class="detail-frame" src="pages/page2/3dModeling/modeling.html"></iframe>
+                    </div>
+                    <div class="detail-view" data-interest="music">
+                        <iframe class="detail-frame" src="pages/page2/Music/music.html"></iframe>
+                    </div>
+                    <div class="detail-view" data-interest="games">
+                        <iframe class="detail-frame" src="pages/page2/ComputerGames/games.html"></iframe>
+                    </div>
+                    <div class="detail-view" data-interest="physics">
+                        <iframe class="detail-frame" src="pages/page2/Physic/Physics.html"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-view keep-open" data-page="3">
+                <div class="code-browser">
+                    <div class="file-list" id="proj-file-list">hover a card to see its code</div>
+                    <pre class="code-scroll"><code id="proj-code-body"></code></pre>
+                </div>
             </div>
 
             <div class="page-view" data-page="4">
                 <h1>contact</h1>
-                <p>schreib mir!</p>
+                <p>get in touch</p>
             </div>
         </div>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.0/marked.min.js"></script>
+    <script src="pages/projects/projects.js"></script>
     <script src="footer/pageswich.js"></script>
 </body>
 </html>

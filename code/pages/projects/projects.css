@@ -1,0 +1,126 @@
+
+.project-cards {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.proj-card {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  height: 300px;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.15);          
+  background: #d8d8d8;                           
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+  color: #111111;                                
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.proj-card:hover {
+  transform: translateX(22px) scale(1.03);  
+  box-shadow: 0 16px 44px rgba(0, 0, 0, 0.65);
+  z-index: 999 !important;
+}
+
+.proj-card-title {
+  font-family: -apple-system, B;
+  padding: 12px 16px;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.25);
+}
+.proj-card-readme {
+  height: calc(100% - 46px);
+  overflow: auto;
+  padding: 12px 16px;
+  font-family: linkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  opacity: 0.9;
+}
+.proj-card-readme h1, .proj-card-readme h2, .proj-card-readme h3 { 
+    font-size: 1rem;
+    margin: 8px 0 5px;
+}
+.proj-card-readme p, .proj-card-readme ul, .proj-card-readme ol { 
+    margin-bottom: 8px; 
+}
+.proj-card-readme ul, .proj-card-readme ol { 
+    padding-left: 18px; 
+}
+.proj-card-readme code {
+    font-family: ui-monospace, 'Consolas', monospace;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px 4px;
+    border-radius: 4px; 
+}
+.proj-card-readme pre { 
+    background: rgba(0, 0, 0, 0.4); 
+    padding: 8px; 
+    border-radius: 6px; 
+    overflow: auto; 
+    margin-bottom: 8px; 
+}
+.proj-card-readme pre code { 
+    background: none; 
+    padding: 0; 
+}
+.proj-card-readme a { 
+    color: #4fd1ff; 
+}
+.proj-card-readme img {
+    max-width: 100%;
+}
+
+.page-view[data-page="3"] {
+  padding: 40px 40px 40px 500px;   
+  overflow: hidden;
+}
+.code-browser {
+  height: 100%;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+.code-browser .file-list {
+  width: 240px;
+  flex-shrink: 0;
+  overflow: auto;
+  padding: 10px;
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.8rem;
+}
+.code-browser .file-item {
+  display: block; width: 100%; text-align: left; background: none; border: 0;
+  color: #cfd3dc; padding: 5px 8px; border-radius: 6px; cursor: pointer;
+  font-family: ui-monospace, 'Consolas', monospace; white-space: nowrap;
+}
+.code-browser .file-item:hover { background: rgba(255, 255, 255, 0.08); }
+.code-browser .file-item.active { background: rgba(79, 209, 255, 0.25); color: #fff; }
+.code-browser .code-scroll { flex: 1; min-width: 0; overflow: auto; margin: 0; }
+.code-browser .code-scroll code {
+  display: block; padding: 14px; font-family: ui-monospace, 'Consolas', monospace;
+  font-size: 0.8rem; line-height: 1.5; background: transparent;
+}
+.proj-card-readme {
+  scrollbar-width: thin;                             
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+.proj-card-readme::-webkit-scrollbar {
+  width: 6px;                                       
+}
+.proj-card-readme::-webkit-scrollbar-track {
+  background: transparent;
+}
+.proj-card-readme::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+.proj-card-readme::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.4);
+}

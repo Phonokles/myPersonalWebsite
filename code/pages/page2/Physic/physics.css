@@ -23,7 +23,7 @@ body {
   justify-content: center;
   gap: 50px;
   padding: 40px;
-  padding-left: 300px;           /* room for the white button on the left */
+  padding-left: 300px;         
 }
 
 .info {
@@ -39,7 +39,6 @@ body {
   line-height: 1.6;
 }
 
-/* ---- Tesseract + controls ---- */
 .viewer {
   display: flex;
   flex-direction: column;

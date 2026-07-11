@@ -18,16 +18,36 @@ body {
 .programming {
   height: 100vh;
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 28px 40px 28px 500px;  
+  flex-direction: row;             /* explorer + info nebeneinander, nicht untereinander */
+  gap: 28px;
+  padding: 28px 40px 28px 500px;   /* room for the white button on the left */
 }
 
+/* explorer on the LEFT, fills the space */
+.explorer {
+  order: -1;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* info column on the right */
+.info {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
 .headline {
   font-size: 2.8rem;
   margin-bottom: 14px;
 }
-
 .meta {
   display: flex;
   flex-direction: column;
@@ -48,26 +68,23 @@ body {
   align-items: center;
   gap: 10px;
   font-size: 1.3rem;
-  background: rgba(255, 255, 255, 0);
 }
 .chip-icon {
   width: 28px;
   height: 28px;
 }
-
-.explorer {
-  flex: 1;                 
-  min-height: 0;          
-  display: flex;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  overflow: hidden;
-  background: rgba(0, 0, 0, 0.35);
+.programming-exp {
+  font-size: 1.1rem;
+  background-color: #ffffff25;
+  border: 1px solid #cfd3dc;
+  border-radius: 100px;
+  padding: 8px 16px;
+  text-align: center;
+  margin-top: 8px;
 }
 
+/* file list + code viewer (identical to projects) */
 .file-list {
-  width: 260px;
-  flex-shrink: 0;
   overflow: auto;
   padding: 10px;
   border-right: 1px solid rgba(255, 255, 255, 0.12);
@@ -86,13 +103,8 @@ body {
   font-family: ui-monospace, 'Consolas', monospace;
   white-space: nowrap;
 }
-.file-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-}
-.file-item.active {
-  background: rgba(31, 156, 240, 0.25);
-  color: #ffffff;
-}
+.file-item:hover { background: rgba(255, 255, 255, 0.08); }
+.file-item.active { background: rgba(74, 74, 74, 0.25); color: #ffffff; }
 
 .code-pane {
   flex: 1;
@@ -121,12 +133,13 @@ body {
   line-height: 1.5;
   background: transparent;
 }
-.programming-exp{
-  font-size: 1.5rem;
-  background-color: #ffffff25;
-  border-radius:100px;
-  border-color:#cfd3dc;
-  border-width: 1px;
-  align-items: center;
-  text-align: center;
+
+/* ===== nicer scrollbars ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
 }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 10px; }
+*::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.4); }
